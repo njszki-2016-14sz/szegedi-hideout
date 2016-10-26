@@ -5,7 +5,10 @@
 	{
 		header('Location: /feed.php');
 	}
-	
+	if($_SERVER["REQUEST_METHOD"]=="POST")
+	{	
+			header('Location: /register.php');
+	}
 ?>
 <html>
 	<head>
@@ -21,7 +24,7 @@
 	<input type="password" name="password">
 	<input type="submit" name="login" value="Bejelentkezés">
 	</form>
-	<form method="post" action="register.php" id="registerfrm">
+	<form method="post" id="registerfrm">
 	<input type="submit" value="regisztrálás" name="reg">
 	</form>
 	</div>
