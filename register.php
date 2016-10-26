@@ -70,8 +70,11 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
 			if(/*strlen($_POST['username'])>5 $_POST['password']==$_POST['passwordagain']*/!isset($hiba))
 			{
-				
-			$res = mysql_query('INSERT INTO `users` (`id`, `username`, `password`, `e-mail`) VALUES (NULL, "$_POST[\'username\']", MD5("$_POST[\'password\']"), "$_POST[\'email\']");', $db);
+				$username= $_POST['username'];
+				$pass= MD5($_POST['password']);
+				$email=$_POST['email'];
+			$res = mysql_query("INSERT INTO `users` (`id`, `username`, `password`, `e-mail`) VALUES (NULL,'$username', '$pass', '$email');", $db);
+			print mysql_error();
 			header('Location: /index.php');
 			}
 
