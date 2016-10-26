@@ -7,14 +7,11 @@ $db = mysql_connect('localhost', 'root', '');
 		if(!$db_selected){
 				die ('Can\'t use: '. mysql_error());
 			}
-			mysql_query("SET NAMES utf8", $db);
-			
+			mysql_query("SET NAMES utf8", $db);		
 			$username=$_POST['username'];
 			$pass=md5($_POST['password']);
 			$res = mysql_query("SELECT * FROM users WHERE username='$username' ;", $db);
-			session_start();
-		
-			
+			session_start();		
 			$record = mysql_fetch_assoc($res);
 				if($pass==$record['password'])
 				{

@@ -28,13 +28,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 				
 			$hibatext="a felhasználónév túl rövid /n a jelszó nem egyezik";	
 			$hiba=true;
-			}
-			
-			
-			
-			
-			
-			
+			}		
 			if(isset($hiba))
 			{
 				?>
@@ -65,9 +59,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 </html>
 				<?php
 			}
-			
-		
-
 			if(/*strlen($_POST['username'])>5 $_POST['password']==$_POST['passwordagain']*/!isset($hiba))
 			{
 				$username= $_POST['username'];
@@ -77,11 +68,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 			print mysql_error();
 			header('Location: /index.php');
 			}
-
-
-
-
-		
 	}else
 	{
 ?>
