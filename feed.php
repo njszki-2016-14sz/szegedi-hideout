@@ -7,7 +7,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadminquit']))
 if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadmin']))
 	{
 ?>
-<iframe src="http://localhost/phpmyadmin/db_structure.php?server=1&db=facebookclone&token=e5ef0ff881567ecec6ee219e5b132ce1" style="width: 100%;height:90%;"></iframe>
+<iframe src="http://localhost/phpmyadmin/db_structure.php?server=1&db=facebookclone" style="width: 100%;height:90%;"></iframe>
 <?php
 }
 ?>
@@ -25,9 +25,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadmin']))
 			if($_SESSION['username']=="admin"||$_SESSION['username']=="steamhunter")
 			{
 		?>
-				<form method="post" action="" style="width:75px; float:left;">
+				<form method="post" action="" style="width:85px; float:left;">
 				
-				<input type="submit" name="phpmyadmin" value="phpmyadmin" style="width:75px;">
+				<input type="submit" name="phpmyadmin" value="phpmyadmin" style="width:80px; margin-right:5px;đ">
 				<?php
 				if(isset($_POST['phpmyadmin']))
 				{
