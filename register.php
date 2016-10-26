@@ -91,7 +91,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 	<input type="submit" name="login" value="regisztrálás">
 	</form>
 	</div>
-	
+	</div>
 	</body>
 </html>
 <?php

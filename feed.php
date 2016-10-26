@@ -1,6 +1,6 @@
 <?php
 session_start();
-print $_SESSION['username'];
+
 ?>
 <html>
 	<head>
@@ -9,10 +9,13 @@ print $_SESSION['username'];
 	</head>
 	<body>
 	<div id="header">
-	<div id="logout">
-	<form method="post" action="logout.php">
-	<input type="submit" name="logout" value="Kijelentkezés">
-	</form>
+	<p><?=$_SESSION['username'];?></p>
+		<div id="logout">
+			<form method="post" action="logout.php">
+				<input type="submit" name="logout" value="Kijelentkezés">
+			</form>
+		</div>
 	</div>
 	</body>
+	
 </html>

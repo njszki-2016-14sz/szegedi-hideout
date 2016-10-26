@@ -23,5 +23,6 @@
 	<div id="register">
 	<a href="register.php">regisztrálás</a>
 	</div>
+	</div>
 	</body>
 </html>
