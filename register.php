@@ -34,26 +34,26 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 				?>
 <html>
 	<head>
-	<title>nem facebook klón</title>
-	<meta charset="utf8">
+		<title>nem facebook klón</title>
+		<meta charset="utf8">
+		
 	</head>
 	<body>
-	<div id="header">
-	<div id="register">
-	<form method="post">
-	<p id="eror"><?=$hibatext?></p>
-	<p>felhasználónév</p>
-	
-	<input type="text" name="username">
-	<p>e-mail cím</p>
-	<input type="text" name="email">
-	<p>jelszó</p>
-	<input type="password" name="password">
-	<p>jelszó ismét</p>
-	<input type="password" name="passwordagain">
-	<input type="submit" name="login" value="regisztrálás">
-	</form>
-	</div>
+		<div id="register">
+			<form method="post">
+				<p id="eror"><?=$hibatext?></p>
+				<p>felhasználónév</p>
+				
+				<input type="text" name="username">
+				<p>e-mail cím</p>
+				<input type="text" name="email">
+				<p>jelszó</p>
+				<input type="password" name="password">
+				<p>jelszó ismét</p>
+				<input type="password" name="passwordagain">
+				<input type="submit" name="login" value="regisztrálás">
+			</form>
+		</div>
 	
 	</body>
 </html>
@@ -73,25 +73,25 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 ?>
 <html>
 	<head>
-	<title>nem facebook klón</title>
-	<meta charset="utf8">
+		<title>nem facebook klón</title>
+		<meta charset="utf8">
+		
 	</head>
 	<body>
-	<div id="header">
-	<div id="register">
-	<form method="post">
-	<p>felhasználónév</p>
-	<input type="text" name="username">
-	<p>e-mail cím</p>
-	<input type="text" name="email">
-	<p>jelszó</p>
-	<input type="password" name="password">
-	<p>jelszó ismét</p>
-	<input type="password" name="passwordagain">
-	<input type="submit" name="login" value="regisztrálás">
-	</form>
-	</div>
-	</div>
+	
+		<div id="register">
+			<form method="post">
+				<p>felhasználónév</p>
+				<input type="text" name="username">
+				<p>e-mail cím</p>
+				<input type="text" name="email">
+				<p>jelszó</p>
+				<input type="password" name="password">
+				<p>jelszó ismét</p>
+				<input type="password" name="passwordagain">
+				<input type="submit" name="login" value="regisztrálás">
+			</form>
+		</div>
 	</body>
 </html>
 <?php

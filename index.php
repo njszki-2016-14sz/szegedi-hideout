@@ -22,7 +22,7 @@
 	<input type="submit" name="login" value="Bejelentkezés">
 	</form>
 	</div>
-	<div id="register">
+	<div id="registerlink">
 	<a href="register.php">regisztrálás</a>
 	</div>
 	</div>

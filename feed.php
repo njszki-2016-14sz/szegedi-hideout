@@ -25,9 +25,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadmin']))
 			if($_SESSION['username']=="admin"||$_SESSION['username']=="steamhunter")
 			{
 		?>
-				<form method="post" action="" style="width:85px; float:left;">
+				<form method="post" action="" style="width:90px; float:left;">
 				
-				<input type="submit" name="phpmyadmin" value="phpmyadmin" style="width:80px; margin-right:5px;đ">
+				<input type="submit" name="phpmyadmin" value="phpmyadmin" style="width:80px; margin-right:5px; margin-left:5px;">
 				<?php
 				if(isset($_POST['phpmyadmin']))
 				{
