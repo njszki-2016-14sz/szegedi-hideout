@@ -16,10 +16,24 @@
 #login
 {
 	float:left;
-	width:380px;
 }
 #register
 {
 	float:left;
 	width:73px;
+}
+#logoutform
+{
+	float:left;
+	width: 80px;
+}
+#loginform
+{
+	float:left;
+	width:435px;
+}
+#username
+{
+	width:80px;
+	float:left;
 }

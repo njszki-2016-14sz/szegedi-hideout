@@ -16,7 +16,7 @@
 	<body>
 	<div id="header">
 	<div id="login">
-	<form method="post" action="login.php">
+	<form method="post" action="login.php" id="loginform">
 	<input type="text" name="username">
 	<input type="password" name="password">
 	<input type="submit" name="login" value="Bejelentkezés">
@@ -32,6 +32,7 @@
 	print "<div>";
 	print $_SESSION['hiba'];
 	print "</div>";
+	}
 	?>
 	</body>
 </html>
