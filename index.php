@@ -21,9 +21,9 @@
 	<input type="password" name="password">
 	<input type="submit" name="login" value="Bejelentkezés">
 	</form>
-	</div>
-	<div id="registerlink">
-	<a href="register.php">regisztrálás</a>
+	<form method="post" action="register.php" id="registerfrm">
+	<input type="submit" value="regisztrálás" name="reg">
+	</form>
 	</div>
 	</div>
 	<?php
