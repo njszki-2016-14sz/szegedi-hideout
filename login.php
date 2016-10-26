@@ -18,6 +18,10 @@ $db = mysql_connect('localhost', 'root', '');
 						$_SESSION['userid']=$record['id'];
 						$_SESSION['username']=$record['username'];
 					header('Location: /feed.php');
+				}else
+				{
+					$_SESSION['hiba']="jelszó nem egyezik";
+					header('Location: /index.php');
 				}
 			
 ?>

@@ -5,11 +5,13 @@
 	{
 		header('Location: /feed.php');
 	}
+	
 ?>
 <html>
 	<head>
 	<title>nem facebook klón</title>
 	<meta charset="utf8">
+	<link rel="stylesheet" href="base.css">
 	</head>
 	<body>
 	<div id="header">
@@ -24,5 +26,12 @@
 	<a href="register.php">regisztrálás</a>
 	</div>
 	</div>
+	<?php
+	if(isset($_SESSION['hiba']))
+	{
+	print "<div>";
+	print $_SESSION['hiba'];
+	print "</div>";
+	?>
 	</body>
 </html>
