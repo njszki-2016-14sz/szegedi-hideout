@@ -52,4 +52,41 @@
 {
 	height:17px;
 }
+#content
+{
+	width:100%;
+	padding-top:15px;
+	padding-left:0.5%;
+	padding-right:0.5%;
+	
+}
+#leftsidebar
+{
+	
+	border: 1px solid red;
+	border-radius:5px;
+	float:left;
+	width:10%;
+	height:500px;
+}
+#rightsidebar
+{
+	
+	border: 1px solid red;
+	border-radius:5px;
+	float:left;
+	width:10%;
+	height:500px;
+}
+#feed
+{
+	margin-left:0.8%;
+	margin-right:0.8%;
+	float:left;
+	border: 1px solid red;
+	border-radius:5px;
+	width:77%;
+	height:90%;
+}
+
 

@@ -46,6 +46,17 @@ if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadmin']))
 			</form>
 		</div>
 	</div>
+	<div id="content">
+		<div id="leftsidebar">
+		left
+		</div>
+		<div id="feed">
+		feed
+		</div>
+		<div id="rightsidebar">
+		right
+		</div>
+	</div>
 	</body>
 	
 </html>
