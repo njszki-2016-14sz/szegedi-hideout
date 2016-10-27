@@ -17,6 +17,7 @@ $db = mysql_connect('localhost', 'root', '');
 				{
 						$_SESSION['userid']=$record['id'];
 						$_SESSION['username']=$record['username'];
+						$_SESSION['rankid']=$record['rankid'];
 					header('Location: /feed.php');
 				}else
 				{

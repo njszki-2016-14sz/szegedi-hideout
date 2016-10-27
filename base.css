@@ -7,13 +7,14 @@
 body
 {
 	padding-left:20px;
+	background-color: #bfbfbf;
 }
 #header
 {
 	padding-left:5px;
 	padding-top:15px;
 	padding-bottom:15px;
-	height:20px;
+	height:60px;
 	width :98.5%;
 	margin-top:0.6%;
 	border-radius:5px;
@@ -26,6 +27,22 @@ body
 #login
 {
 	float:left;
+	padding-top: 21px;
+}
+.logout{
+	height: 60px;
+    width: 150px;
+    background-color: #f9a56a;
+    float: left;
+	border: 1px red solid;
+}
+.logoutinput
+{
+	height: 60px;
+    width: 150px;
+    background-color: #f9a56a;
+    float: left;
+	font-weight: bold;
 }
 #register
 {
@@ -49,8 +66,12 @@ body
 }
 #username
 {
-	width:80px;
+	width:100%;
+	text-align:center;
+	padding-top:21px;
+	padding-bottom:21px;
 	float:left;
+	    font-weight: bold;
 }
 #registerfrm
 {
@@ -75,7 +96,7 @@ body
 	float:left;
 	width:10%;
 	height:500px;
-	background-color:#f2d5d5;
+	background-color:#f5f1d7;
 }
 #rightsidebar
 {
@@ -86,7 +107,7 @@ body
 	width:10%;
 	height:500px;
 	margin-right:20px;
-	background-color:#f2d5d5;
+	background-color:#f5f1d7;
 	
 }
 .feed
@@ -129,6 +150,19 @@ body
 .feedcontent
 {
 	height:170px;
-	background-color:#f2d5d5;
+	background-color:#f5f1d7;
 	
+}
+#userbox
+{
+	 background-color:#f9a56a;
+	width:150px;
+	height:60px;
+	float:left;
+	border: 1px red solid;
+}
+#textareaposzt
+{
+	height:119px;
+	width:100%
 }

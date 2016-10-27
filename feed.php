@@ -19,46 +19,72 @@ if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadmin']))
 	</head>
 	<body>
 	<div id="header">
+	<div id="userbox">
 	<p id="username"><?=$_SESSION['username'];?></p>
-		<div id="logout">
+	</div>
+		
+		<div class="logout">
+		
+			<form method="post" action="logout.php" id="logoutform">
+			
+				<input type="submit" name="logout" value="Kijelentkezés" class="logoutinput">
+			</form>
+		</div>
 		<?php
 			if($_SESSION['username']=="admin"||$_SESSION['username']=="steamhunter")
 			{
-		?>
-				<form method="post" action="" style="width:90px; float:left;">
+			
+				if(isset($_POST['phpmyadmin']))
+				{
+				?>
+				<div style="background-color:#f9a56a;width: 300px;height: 60;float:left;border: 1px red solid;">
+				<?php
+				}else
+				{
+				?>
+				<div style="background-color:#f9a56a;width: 150px;height: 60;float:left;border: 1px red solid;">
+				<?php
+				}
+				?>
+				<form method="post" action="" style="width:100%; float:left;">
 				
-				<input type="submit" name="phpmyadmin" value="phpmyadmin" style="width:80px; margin-right:5px; margin-left:5px;">
+				<input type="submit" name="phpmyadmin" value="phpmyadmin" style="background-color:#f9a56a;width: 150px;height: 60;float:left;    font-weight: bold;">
 				<?php
 				if(isset($_POST['phpmyadmin']))
 				{
 				?>
-				<input type="submit" name="phpmyadminquit" value="phpmyadminquit" style="width:95px;">
+				<input type="submit" name="phpmyadminquit" value="phpmyadminquit" style="background-color:#f9a56a;width: 150px;height: 60;float:left;border-left:1px;border-style:solid;border-color:red;     font-weight: bold;">
 				<?php
 				}
 				?>
 				</form>
+				</div>
 			<?php
 			}
 			?>
-			<form method="post" action="logout.php" id="logoutform">
-			
-				<input type="submit" name="logout" value="Kijelentkezés">
-			</form>
-		</div>
+	</div>
 	</div>
 	<div id="content">
 		<div id="leftsidebar">
 		<div class="titlebar">
 		<p class="titlebar-title">left</p>
 		</div>
+		<div class="">
+		<p class="">könyvjelzős posztok</p>
+		</div>
 		</div>
 		<div id="rightsidebar">
 		<div class="titlebar">
 		<p class="titlebar-title">right</p>
 		</div>
+		<div class="">
+		<p class="">új posztok</p>
+		</div>
 		</div>
 		
 		<div id="centerfeed">
+		
+		
 		
 		<?php
 		$db = mysql_connect('localhost', 'root', '');
@@ -94,14 +120,38 @@ if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadmin']))
 				
 			}
 			
-?>
-		</div>	
+		if($_SESSION['rankid']>=99)
+		{
+		?>
+		<div class="feed">
+		<div class="titlebar">
+			<p class="titlebar-title">ÚJ POSZT</p>
+		</div>
+		<form method="post" action="poszt.php" id="newpost">
+		<div class="feedcontent">
+				
+				<p>poszt címe</p>
+				<input type="text" name="posttitle" style="border:1px solid red;">
+				
+				<p>poszt szövege</p>
+				<textarea name="comment" form="newpost" id="textareaposzt" style="border:1px solid red;"></textarea>
+		</div>
+		<div class="feedfooter">
+				<input type="submit" value="poszt" name="post">
+		</div>
+		</form>
+		</div>
+		<?php
+		}
+		?>
+		
+		</div>
 	</div>
 		
 	
 		
 		
-	</div>
+	
 	</body>
 	
 </html>
