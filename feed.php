@@ -81,7 +81,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadmin']))
 					<div class="titlebar">
 					<p class="titlebar-title"><?= $record['posttitle']?></p>
 					</div>
+				<div class="feedcontent">
 				<?=$record['post']?>
+				</div>
+				<div class="feedfooter">
+				
+				</div>
 				</div>
 			
 		
