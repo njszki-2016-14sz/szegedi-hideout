@@ -7,7 +7,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadminquit']))
 if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadmin']))
 	{
 ?>
-<iframe src="http://localhost/phpmyadmin/db_structure.php?server=1&db=facebookclone" style="width: 100%;height:90%;"></iframe>
+<iframe src="http://localhost/phpmyadmin/" style="width: 100%;height:95%;"></iframe>
 <?php
 }
 ?>
@@ -48,14 +48,54 @@ if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadmin']))
 	</div>
 	<div id="content">
 		<div id="leftsidebar">
-		left
+		<div class="titlebar">
+		<p class="titlebar-title">left</p>
 		</div>
-		<div id="feed">
-		feed
 		</div>
 		<div id="rightsidebar">
-		right
+		<div class="titlebar">
+		<p class="titlebar-title">right</p>
 		</div>
+		</div>
+		
+		<div id="centerfeed">
+		
+		<?php
+		$db = mysql_connect('localhost', 'root', '');
+		if(!$db){
+				die('Could not connect: '.mysql_error());
+				}
+		$db_selected = mysql_select_db('facebookclone', $db);
+		if(!$db_selected){
+				die ('Can\'t use: '. mysql_error());
+			}
+			mysql_query("SET NAMES utf8", $db);		
+			$res = mysql_query("SELECT * FROM feedposts ORDER BY id DESC;", $db);
+				
+			
+			while($record = mysql_fetch_assoc($res)){
+				
+				?>
+				
+				<div class="feed">
+					<div class="titlebar">
+					<p class="titlebar-title"><?= $record['posttitle']?></p>
+					</div>
+				<?=$record['post']?>
+				</div>
+			
+		
+				<?php
+				
+			}
+			
+?>
+		</div>	
+	</div>
+		
+	
+		
+		
 	</div>
 	</body>
 	
