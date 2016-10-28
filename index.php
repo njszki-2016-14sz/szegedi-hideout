@@ -21,8 +21,8 @@
 	<div id="login">
 	<form method="post" action="login.php" id="loginform">
 	
-	<input type="text" name="username">
-	<input type="password" name="password">
+	<input type="text" name="username" class="logintextbox">
+	<input type="password" name="password" class="logintextbox">
 	<input type="submit" name="login" value="Bejelentkezés" id="loginbt">
 	</form>
 	<form method="post" id="registerfrm">

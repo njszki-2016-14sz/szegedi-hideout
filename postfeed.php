@@ -32,6 +32,7 @@
 				<div class="feed">
 					<div class="titlebar">
 					<p class="titlebar-title"><?= $record['posttitle']?></p>
+					
 					</div>
 				<div class="feedcontent">
 				<?=$record['post']?>
