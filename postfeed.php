@@ -44,6 +44,20 @@
 				$rec = mysql_fetch_assoc($ress);
 				?>
 				<p id="senderbox"><?=$rec['username']?></p>
+				<form method="post" class="commnethidder">
+				<input type="submit" name="comment" value="hozzászólások">
+				<input type="hidden" name="postid" value=<?=$record['id'];?>>
+				<?php
+				if(isset($_POST['comment']))
+				{
+					if($_POST['postid']==$record['id'])
+					{
+						print($_POST['postid']);
+					}
+				}
+				
+				?>
+				</form>
 				</div>
 				</div>
 				<?php
@@ -58,7 +72,7 @@
 				<p class="titlebar-title">ÚJ POSZT</p>
 			</div>
 			<form method="post" action="poszt.php" id="newpost">
-			<div class="feedcontent">	
+			<div class="feedcontent">
 					<p>poszt címe</p>
 					<input type="text" name="posttitle" style="border:1px solid red;">
 					<p>poszt szövege</p>

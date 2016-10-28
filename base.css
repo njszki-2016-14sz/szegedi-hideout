@@ -183,4 +183,9 @@ body
 	height:20px; 
 	width:100px;
 	background-color: #f9a56a;
+	float:left;
+}
+.commnethidder
+{
+	float:right;
 }
