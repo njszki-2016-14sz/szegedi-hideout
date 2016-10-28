@@ -42,7 +42,7 @@
 				$ress = mysql_query("SELECT username FROM users WHERE id='$userid';", $db);
 				$rec = mysql_fetch_assoc($ress);
 				?>
-				<p><?=$rec['username']?></p>
+				<p id="senderbox"><?=$rec['username']?></p>
 				</div>
 				</div>
 				<?php

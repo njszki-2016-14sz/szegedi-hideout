@@ -155,9 +155,10 @@ body
 .feedfooter
 {
 	background-color: #920000;
-	height:40px;
+	height: 20px;
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
+	padding: 10px;
 }
 .feedcontent
 {
@@ -177,4 +178,10 @@ body
 {
 	height:119px;
 	width:100%
+}
+#senderbox
+{
+	height:20px; 
+	width:100px;
+	background-color: #f9a56a;
 }
