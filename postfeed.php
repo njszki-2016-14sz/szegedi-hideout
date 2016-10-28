@@ -47,20 +47,31 @@
 				<form method="post" class="commnethidder">
 				<input type="submit" name="comment" value="hozzászólások">
 				<input type="hidden" name="postid" value=<?=$record['id'];?>>
+				
+				</form>
+				</div>
+				</div>
 				<?php
 				if(isset($_POST['comment']))
 				{
 					if($_POST['postid']==$record['id'])
 					{
-						print($_POST['postid']);
+					mysql_select_db('facebookclonecomment', $db);
+					$cmtres = mysql_query("SELECT * FROM postcomment".$_POST['postid'].";", $db);
+					print mysql_error();
+						while($cmtrecord = mysql_fetch_assoc($cmtres)){
+						?>
+							<div class="feedcomment">
+							<?php
+							
+							print($cmtrecord['comment']);
+							?>
+							</div>
+						<?php
+						}
+					mysql_select_db('facebookclone', $db);
 					}
 				}
-				
-				?>
-				</form>
-				</div>
-				</div>
-				<?php
 			}
 		if(isset($_SESSION['rankid']))
 		{			

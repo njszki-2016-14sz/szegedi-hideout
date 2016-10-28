@@ -95,13 +95,12 @@ body
 #content
 {
 	width:100%;
-	padding-top:15px;
 	
 	
 }
 #leftsidebar
 {
-	
+	margin-top:15px;
 	border: 1px solid red;
 	border-radius:5px;
 	float:left;
@@ -118,18 +117,19 @@ body
 	width:10%;
 	height:500px;
 	margin-right:20px;
+	margin-top:15px;
 	background-color:#f5f1d7;
 	
 }
 .feed
 {
-	
+	margin-top:15px;
 	float:left;
 	border: 1px solid red;
 	border-radius:5px;
 	width:100%;
 	height:250px;
-	margin-bottom:15px;
+	
 }
 
 
@@ -188,4 +188,13 @@ body
 .commnethidder
 {
 	float:right;
+}
+.feedcomment
+{
+	
+	float:left;
+	border: 1px solid red;
+	border-radius:5px;
+	width:100%;
+	height:250px;
 }

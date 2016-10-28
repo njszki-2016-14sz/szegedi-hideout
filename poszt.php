@@ -12,7 +12,12 @@ $db = mysql_connect('localhost', 'root', '');
 		$userid=$_SESSION['userid'];
 		$posttitle=$_POST['posttitle'];
 		$comment=$_POST['comment'];
-		$res = mysql_query("INSERT INTO `feedposts` (`id`, `userid`, `posttitle`, `post`) VALUES (NULL, '$userid', '$posttitle', '$comment');", $db);
+		mysql_query("INSERT INTO `feedposts` (`id`, `userid`, `posttitle`, `post`) VALUES (NULL, '$userid', '$posttitle', '$comment');", $db);
+		$res = mysql_query("SELECT * FROM feedposts ORDER BY id DESC LIMIT 1;", $db);
+		$postdata=mysql_fetch_assoc($res);
+		$postid=$postdata['id'];
+		$tablename='postcomment'.$postid;
+		mysql_query("CREATE TABLE `facebookclonecomment`.".$tablename." ( `id` INT NOT NULL AUTO_INCREMENT , `userid` INT NOT NULL , `comment` VARCHAR(512) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;", $db);
 		print mysql_error();
 		header('Location: /feed.php');
 
