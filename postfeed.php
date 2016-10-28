@@ -15,11 +15,7 @@
 		<p class="">új posztok</p>
 		</div>
 		</div>
-		
-		<div id="centerfeed">
-		
-		
-		
+		<div id="centerfeed">	
 		<?php
 		$db = mysql_connect('localhost', 'root', '');
 		if(!$db){
@@ -31,12 +27,8 @@
 			}
 			mysql_query("SET NAMES utf8", $db);		
 			$res = mysql_query("SELECT * FROM feedposts ORDER BY id DESC;", $db);
-				
-			
 			while($record = mysql_fetch_assoc($res)){
-				
 				?>
-				
 				<div class="feed">
 					<div class="titlebar">
 					<p class="titlebar-title"><?= $record['posttitle']?></p>
@@ -53,10 +45,7 @@
 				<p><?=$rec['username']?></p>
 				</div>
 				</div>
-			
-		
 				<?php
-				
 			}
 		if(isset($_SESSION['rankid']))
 		{			
@@ -68,11 +57,9 @@
 				<p class="titlebar-title">ÚJ POSZT</p>
 			</div>
 			<form method="post" action="poszt.php" id="newpost">
-			<div class="feedcontent">
-					
+			<div class="feedcontent">	
 					<p>poszt címe</p>
 					<input type="text" name="posttitle" style="border:1px solid red;">
-					
 					<p>poszt szövege</p>
 					<textarea name="comment" form="newpost" id="textareaposzt" style="border:1px solid red;"></textarea>
 			</div>
@@ -85,6 +72,5 @@
 			}
 		}
 			?>
-		
 		</div>
 	</div>
