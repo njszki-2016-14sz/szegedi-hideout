@@ -45,7 +45,12 @@
 				<?=$record['post']?>
 				</div>
 				<div class="feedfooter">
-				
+				<?php
+				$userid=$record['userid'];
+				$ress = mysql_query("SELECT username FROM users WHERE id='$userid';", $db);
+				$rec = mysql_fetch_assoc($ress);
+				?>
+				<p><?=$rec['username']?></p>
 				</div>
 				</div>
 			
