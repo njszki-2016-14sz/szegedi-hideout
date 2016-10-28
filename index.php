@@ -20,9 +20,10 @@
 	<div id="header">
 	<div id="login">
 	<form method="post" action="login.php" id="loginform">
+	
 	<input type="text" name="username">
 	<input type="password" name="password">
-	<input type="submit" name="login" value="Bejelentkezés">
+	<input type="submit" name="login" value="Bejelentkezés" id="loginbt">
 	</form>
 	<form method="post" id="registerfrm">
 	<input type="submit" value="regisztrálás" name="reg">
@@ -36,6 +37,7 @@
 	print $_SESSION['hiba'];
 	print "</div>";
 	}
+	include("postfeed.php");
 	?>
 	</body>
 </html>
