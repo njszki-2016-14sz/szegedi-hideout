@@ -218,3 +218,10 @@ body
 	height:170px;
 	width:100%
 }
+.commentbt
+{
+	height: 20;
+    width: 100;
+    background-color: #f9a56a;
+    border: 1px red solid;
+}

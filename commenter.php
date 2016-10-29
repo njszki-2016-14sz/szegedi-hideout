@@ -23,6 +23,7 @@
 		$comment=$_POST['comment'];
 		mysql_query("INSERT INTO postcomment".$postid." (`id`, `userid`, `comment`) VALUES (NULL, ".$userid.", '$comment');", $db);
 		print mysql_error();
+		$_SESSION['postid']=$postid;
 		header('Location: /feed.php');
 
 ?>

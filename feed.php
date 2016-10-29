@@ -4,7 +4,7 @@ function GetColorByRank($rankid)
 	switch($rankid)
 	{
 		case 99:return "red";
-		default:return "#f9a56a";
+		default:return "#6af98f";
 	
 	}
 }

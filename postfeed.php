@@ -48,17 +48,25 @@
 				print"<p id='senderbox' style='$bg'>$username</p>"
 				?>
 				<form method="post" class="commnethidder">
-				<input type="submit" name="comment" value="hozzászólások">
+				<input type="submit" name="comment" value="hozzászólások" class="commentbt">
 				<input type="hidden" name="postid" value=<?=$record['id'];?>>
 				
 				</form>
 				</div>
 				</div>
 				<?php
+				if(isset($_SESSION['postid']))
+					{
+						$_POST['postid']=$_SESSION['postid'];
+						$_POST['comment']="hozászólás";
+						$_SESSION['postid']=null;
+					}
 				if(isset($_POST['comment']))
 				{
+					
 					if($_POST['postid']==$record['id'])
 					{
+					
 					mysql_select_db('facebookclonecomment', $db);
 					$cmtres = mysql_query("SELECT * FROM postcomment".$_POST['postid'].";", $db);
 					mysql_select_db('facebookclone', $db);
@@ -100,7 +108,7 @@
 						<textarea name="comment" form="newcommentform" id="textareacomment" style="border:1px solid red;"></textarea>
 						</div>
 						<div class="feedfooter">
-						<input type="submit" value="hozászólás" name="post">
+						<input type="submit" value="hozászólás" name="post" class="commentbt">
 						</div>
 						</form>
 						</div>
@@ -125,7 +133,7 @@
 					<textarea name="comment" form="newpost" id="textareaposzt" style="border:1px solid red;"></textarea>
 			</div>
 			<div class="feedfooter">
-					<input type="submit" value="poszt" name="post">
+					<input type="submit" value="poszt" name="post" class="commentbt">
 			</div>
 			</form>
 			</div>
