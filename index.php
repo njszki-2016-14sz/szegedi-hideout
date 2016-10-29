@@ -1,4 +1,13 @@
 <?php
+function GetColorByRank($rankid)
+{
+	switch($rankid)
+	{
+		case 99:return "red";
+		default:return "#6af98f";
+	
+	}
+}
 	session_start();
 	
 	if(isset($_SESSION['userid']))
