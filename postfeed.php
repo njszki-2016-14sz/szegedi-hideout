@@ -1,3 +1,4 @@
+
 <div id="content">
 		<div id="leftsidebar">
 		<div class="titlebar">
@@ -40,10 +41,12 @@
 				<div class="feedfooter">
 				<?php
 				$userid=$record['userid'];
-				$ress = mysql_query("SELECT username FROM users WHERE id='$userid';", $db);
+				$ress = mysql_query("SELECT * FROM users WHERE id='$userid';", $db);
 				$rec = mysql_fetch_assoc($ress);
+				$bg="background-color: ".GetColorByRank($rec['rankid']).";";
+				$username=$rec['username'];
+				print"<p id='senderbox' style='$bg'>$username</p>"
 				?>
-				<p id="senderbox"><?=$rec['username']?></p>
 				<form method="post" class="commnethidder">
 				<input type="submit" name="comment" value="hozzászólások">
 				<input type="hidden" name="postid" value=<?=$record['id'];?>>
@@ -58,18 +61,50 @@
 					{
 					mysql_select_db('facebookclonecomment', $db);
 					$cmtres = mysql_query("SELECT * FROM postcomment".$_POST['postid'].";", $db);
+					mysql_select_db('facebookclone', $db);
 					print mysql_error();
 						while($cmtrecord = mysql_fetch_assoc($cmtres)){
 						?>
 							<div class="feedcomment">
-							<?php
 							
-							print($cmtrecord['comment']);
-							?>
+							<div class="feedcommentcontent">
+							<?=$cmtrecord['comment']?>
+							</div
+							<div class="feedfooter">
+								<?php
+								$userid=$cmtrecord['userid'];
+								$ress = mysql_query("SELECT * FROM users WHERE id='$userid';", $db);
+								$rec = mysql_fetch_assoc($ress);
+								?>
+								<div class="feedfooter">
+								
+								<?php
+								$bg="background-color: ".GetColorByRank($rec['rankid']).";";
+								$username=$rec['username'];
+								print"<p id='senderbox' style='$bg'>$username</p>"
+								?>
+								</div>
+								
+								</form>
 							</div>
 						<?php
 						}
-					mysql_select_db('facebookclone', $db);
+						?>
+						<div class="newcomment">
+						<div class="titlebar">
+						<p class="titlebar-title">új hozászólás</p>
+						</div>
+						<form method="post" action="commenter.php" id="newcommentform">
+						<div class="feedcontent">
+						<input type="hidden" name="postid" value=<?=$record['id'];?>>
+						<textarea name="comment" form="newcommentform" id="textareacomment" style="border:1px solid red;"></textarea>
+						</div>
+						<div class="feedfooter">
+						<input type="submit" value="hozászólás" name="post">
+						</div>
+						</form>
+						</div>
+					<?php
 					}
 				}
 			}

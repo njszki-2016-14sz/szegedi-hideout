@@ -182,7 +182,6 @@ body
 {
 	height:20px; 
 	width:100px;
-	background-color: #f9a56a;
 	float:left;
 }
 .commnethidder
@@ -196,5 +195,26 @@ body
 	border: 1px solid red;
 	border-radius:5px;
 	width:100%;
+	height:190px;
+	background-color:#f5f1d7;
+}
+.feedcommentcontent
+{
+	height:150px;
+	background-color:#f5f1d7;
+	
+}
+.newcomment
+{
+	float:left;
+	border: 1px solid red;
+	border-radius:5px;
+	width:100%;
 	height:250px;
+	
+}
+#textareacomment
+{
+	height:170px;
+	width:100%
 }

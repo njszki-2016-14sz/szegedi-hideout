@@ -1,4 +1,13 @@
 <?php
+function GetColorByRank($rankid)
+{
+	switch($rankid)
+	{
+		case 99:return "red";
+		default:return "#f9a56a";
+	
+	}
+}
 session_start();
 if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadminquit']))
 	{

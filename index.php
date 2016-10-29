@@ -5,7 +5,7 @@
 	{
 		header('Location: /feed.php');
 	}
-	if($_SERVER["REQUEST_METHOD"]=="POST")
+	if($_SERVER["REQUEST_METHOD"]=="POST"&&!isset($_POST['comment']))
 	{	
 			header('Location: /register.php');
 	}
