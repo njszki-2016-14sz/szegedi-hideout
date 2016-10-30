@@ -9,6 +9,10 @@ function GetColorByRank($rankid)
 	}
 }
 session_start();
+if(!isset($_SESSION['username']))
+{
+	header('Location: /index.php');
+}
 if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadminquit']))
 	{
 		header('Location: /feed.php');
