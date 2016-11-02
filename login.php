@@ -15,6 +15,8 @@ $db = mysql_connect('localhost', 'root', '');
 			$record = mysql_fetch_assoc($res);
 				if($pass==$record['password'])
 				{
+					$userid=$record['id'];
+					mysql_query("UPDATE `users` SET `lastlogin` = NOW() WHERE `users`.`id` ='$userid' ;");
 						$_SESSION['userid']=$record['id'];
 						$_SESSION['username']=$record['username'];
 						$_SESSION['rankid']=$record['rankid'];

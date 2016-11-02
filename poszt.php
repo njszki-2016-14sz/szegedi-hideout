@@ -12,6 +12,7 @@ $db = mysql_connect('localhost', 'root', '');
 		$userid=$_SESSION['userid'];
 		$posttitle=$_POST['posttitle'];
 		$comment=$_POST['comment'];
+		//
 		mysql_query("INSERT INTO `feedposts` (`id`, `userid`, `posttitle`, `post`) VALUES (NULL, '$userid', '$posttitle', '$comment');", $db);
 		$res = mysql_query("SELECT * FROM feedposts ORDER BY id DESC LIMIT 1;", $db);
 		$postdata=mysql_fetch_assoc($res);

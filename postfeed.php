@@ -10,13 +10,9 @@
 		</div>
 		<div id="rightsidebar">
 		<div class="titlebar">
-		<p class="titlebar-title">right</p>
+		<p class="titlebar-title">új posztok</p>
 		</div>
-		<div class="">
-		<p class="">új posztok</p>
-		</div>
-		</div>
-		<div id="centerfeed">	
+		<div>
 		<?php
 		$db = mysql_connect('localhost', 'root', '');
 		if(!$db){
@@ -26,7 +22,14 @@
 		if(!$db_selected){
 				die ('Can\'t use: '. mysql_error());
 			}
-			mysql_query("SET NAMES utf8", $db);		
+			mysql_query("SET NAMES utf8", $db);
+			
+		?>
+		</div>
+		</div>
+		<div id="centerfeed">	
+		<?php
+		
 			$res = mysql_query("SELECT * FROM feedposts ORDER BY id DESC;", $db);
 			while($record = mysql_fetch_assoc($res)){
 				?>
@@ -77,7 +80,7 @@
 							
 							<div class="feedcommentcontent">
 							<?=$cmtrecord['comment']?>
-							</div
+							</div>
 							<div class="feedfooter">
 								<?php
 								$userid=$cmtrecord['userid'];
@@ -142,4 +145,4 @@
 		}
 			?>
 		</div>
-	</div>
+</div>

@@ -1,4 +1,13 @@
 <?php
+function GetColorByRank($rankid)
+{
+	switch($rankid)
+	{
+		case 99:return "#efff00;";
+		default:return "#6af98f";
+	
+	}
+}
 if($_SERVER["REQUEST_METHOD"]=="POST")
 	{
 		$db = mysql_connect('localhost', 'root', '');
@@ -36,9 +45,19 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 	<head>
 		<title>nem facebook klón</title>
 		<meta charset="utf8">
-		
+		<link rel="stylesheet" href="reg.css">
 	</head>
 	<body>
+	<div id="header">
+	<div id="login">
+	<form method="post" action="login.php" id="loginform">
+	
+	<input type="text" name="username" class="logintextbox">
+	<input type="password" name="password" class="logintextbox">
+	<input type="submit" name="login" value="Bejelentkezés" id="loginbt">
+	</form>
+	</div>
+	</div>
 		<div id="register">
 			<form method="post">
 				<p id="eror"><?=$hibatext?></p>
@@ -53,6 +72,93 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 				<input type="password" name="passwordagain">
 				<input type="submit" name="login" value="regisztrálás">
 			</form>
+		</div>
+		<div id="rightsidebar">
+		<div class="titlebar">
+		<p class="titlebar-title">új posztok</p>
+		</div>
+		</div>
+		<div>
+		
+		
+		<div id="centerfeed">	
+		<?php
+		
+			$res = mysql_query("SELECT * FROM feedposts ORDER BY id DESC;", $db);
+			while($record = mysql_fetch_assoc($res)){
+				?>
+				<div class="feed">
+					<div class="titlebar">
+					<p class="titlebar-title"><?= $record['posttitle']?></p>
+					
+					</div>
+				<div class="feedcontent">
+				<?=$record['post']?>
+				</div>
+				<div class="feedfooter">
+				<?php
+				$userid=$record['userid'];
+				$ress = mysql_query("SELECT * FROM users WHERE id='$userid';", $db);
+				$rec = mysql_fetch_assoc($ress);
+				$bg="background-color: ".GetColorByRank($rec['rankid']).";";
+				$username=$rec['username'];
+				print"<p id='senderbox' style='$bg'>$username</p>"
+				?>
+				<form method="post" class="commnethidder">
+				<input type="submit" name="comment" value="hozzászólások" class="commentbt">
+				<input type="hidden" name="postid" value=<?=$record['id'];?>>
+				
+				</form>
+				</div>
+				</div>
+				<?php
+				if(isset($_SESSION['postid']))
+					{
+						$_POST['postid']=$_SESSION['postid'];
+						$_POST['comment']="hozászólás";
+						$_SESSION['postid']=null;
+					}
+				if(isset($_POST['comment']))
+				{
+					
+					if($_POST['postid']==$record['id'])
+					{
+					
+					mysql_select_db('facebookclonecomment', $db);
+					$cmtres = mysql_query("SELECT * FROM postcomment".$_POST['postid'].";", $db);
+					mysql_select_db('facebookclone', $db);
+					print mysql_error();
+						while($cmtrecord = mysql_fetch_assoc($cmtres)){
+						?>
+							<div class="feedcomment">
+							
+							<div class="feedcommentcontent">
+							<?=$cmtrecord['comment']?>
+							</div>
+							<div class="feedfooter">
+								<?php
+								$userid=$cmtrecord['userid'];
+								$ress = mysql_query("SELECT * FROM users WHERE id='$userid';", $db);
+								$rec = mysql_fetch_assoc($ress);
+								?>
+								<div class="feedfooter">
+								
+								<?php
+								$bg="background-color: ".GetColorByRank($rec['rankid'])."; margin:0;";
+								$username=$rec['username'];
+								print"<p id='senderbox' style='$bg'>$username</p>"
+								?>
+								</div>
+								
+								</form>
+							</div>
+						<?php
+						}
+					
+					}
+				}
+			}
+			?>
 		</div>
 	
 	</body>
@@ -75,10 +181,19 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 	<head>
 		<title>nem facebook klón</title>
 		<meta charset="utf8">
-		
+		<link rel="stylesheet" href="reg.css">
 	</head>
 	<body>
+	<div id="header">
+	<div id="login">
+	<form method="post" action="login.php" id="loginform">
 	
+	<input type="text" name="username" class="logintextbox">
+	<input type="password" name="password" class="logintextbox">
+	<input type="submit" name="login" value="Bejelentkezés" id="loginbt">
+	</form>
+	</div>
+	</div>
 		<div id="register">
 			<form method="post">
 				<p>felhasználónév</p>
@@ -91,6 +206,100 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 				<input type="password" name="passwordagain">
 				<input type="submit" name="login" value="regisztrálás">
 			</form>
+		</div>
+		<div id="rightsidebar">
+		<div class="titlebar">
+		<p class="titlebar-title">új posztok</p>
+		</div>
+		</div>
+		
+		
+		<div id="centerfeed">	
+		<?php
+		$db = mysql_connect('localhost', 'root', '');
+		if(!$db){
+				die('Could not connect: '.mysql_error());
+				}
+		$db_selected = mysql_select_db('facebookclone', $db);
+		if(!$db_selected){
+				die ('Can\'t use: '. mysql_error());
+			}
+			mysql_query("SET NAMES utf8", $db);
+			$res = mysql_query("SELECT * FROM feedposts ORDER BY id DESC;", $db);
+			while($record = mysql_fetch_assoc($res)){
+				?>
+				<div class="feed">
+					<div class="titlebar">
+					<p class="titlebar-title"><?= $record['posttitle']?></p>
+					
+					</div>
+				<div class="feedcontent">
+				<?=$record['post']?>
+				</div>
+				<div class="feedfooter">
+				<?php
+				$userid=$record['userid'];
+				$ress = mysql_query("SELECT * FROM users WHERE id='$userid';", $db);
+				$rec = mysql_fetch_assoc($ress);
+				$bg="background-color: ".GetColorByRank($rec['rankid'])."; margin:0; margin-right:15px;";
+				$username=$rec['username'];
+				print"<p id='senderbox' style='$bg'>$username</p>"
+				?>
+				<form method="post" class="commnethidder">
+				<input type="submit" name="comment" value="hozzászólások" class="commentbt">
+				<input type="hidden" name="postid" value=<?=$record['id'];?>>
+				
+				</form>
+				</div>
+				</div>
+				<?php
+				if(isset($_SESSION['postid']))
+					{
+						$_POST['postid']=$_SESSION['postid'];
+						$_POST['comment']="hozászólás";
+						$_SESSION['postid']=null;
+					}
+				if(isset($_POST['comment']))
+				{
+					
+					if($_POST['postid']==$record['id'])
+					{
+					
+					mysql_select_db('facebookclonecomment', $db);
+					$cmtres = mysql_query("SELECT * FROM postcomment".$_POST['postid'].";", $db);
+					mysql_select_db('facebookclone', $db);
+					print mysql_error();
+						while($cmtrecord = mysql_fetch_assoc($cmtres)){
+						?>
+							<div class="feedcomment">
+							
+							<div class="feedcommentcontent">
+							<?=$cmtrecord['comment']?>
+							</div>
+							<div class="feedfooter">
+								<?php
+								$userid=$cmtrecord['userid'];
+								$ress = mysql_query("SELECT * FROM users WHERE id='$userid';", $db);
+								$rec = mysql_fetch_assoc($ress);
+								?>
+								<div class="feedfooter">
+								
+								<?php
+								$bg="background-color: ".GetColorByRank($rec['rankid'])."; margin: 0; margin-right:15px;";
+								$username=$rec['username'];
+								print"<p id='senderbox' style='$bg'>$username</p>"
+								?>
+								</div>
+								
+								</form>
+							</div>
+						<?php
+						}
+						
+					}
+				}
+			}
+			?>
 		</div>
 	</body>
 </html>
