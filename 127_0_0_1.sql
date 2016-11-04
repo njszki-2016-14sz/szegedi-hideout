@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2016. Okt 27. 21:47
+-- Létrehozás ideje: 2016. Nov 04. 12:48
 -- Kiszolgáló verziója: 10.1.16-MariaDB
 -- PHP verzió: 5.6.24
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Adatbázis: `facebookclone`
 --
+CREATE DATABASE IF NOT EXISTS `facebookclone` DEFAULT CHARACTER SET utf8 COLLATE utf8_hungarian_ci;
+USE `facebookclone`;
 
 -- --------------------------------------------------------
 
@@ -38,11 +40,8 @@ CREATE TABLE `feedposts` (
 --
 
 INSERT INTO `feedposts` (`id`, `userid`, `posttitle`, `post`) VALUES
-(1, 1, 'TESZT POSZT', 'első'),
-(2, 1, 'TESZT POSZT', 'második'),
-(5, 1, '3rd test', 'yes i need it'),
-(7, 1, 'not from db', 'pls work'),
-(8, 1, 'TESZT', 'valami');
+(5, 1, 'i needed ', 'a db reset again'),
+(6, 1, '2nx', 'asdasdasdf');
 
 -- --------------------------------------------------------
 
@@ -82,7 +81,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `e-mail`, `rankid`) VALUES
 (1, 'steamhunter', '6f8b2364f18a627b44f0e4d63fe5b5ea', 'steamhunter97@gmail.com', 99),
-(3, 'admin', '6f8b2364f18a627b44f0e4d63fe5b5ea', 'steamhunter97@gmail.com', 99);
+(3, 'admin', '6f8b2364f18a627b44f0e4d63fe5b5ea', 'steamhunter97@gmail.com', 99),
+(6, 'TheYomiChan', 'b5d73d30683e117cee008545982e8ae5', 'gamehunter997@gmail.com', 0);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -108,12 +108,71 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT a táblához `feedposts`
 --
 ALTER TABLE `feedposts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;--
+-- Adatbázis: `facebookclonecomment`
+--
+CREATE DATABASE IF NOT EXISTS `facebookclonecomment` DEFAULT CHARACTER SET utf8 COLLATE utf8_hungarian_ci;
+USE `facebookclonecomment`;
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `postcomment5`
+--
+
+CREATE TABLE `postcomment5` (
+  `id` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `comment` varchar(512) COLLATE utf8_hungarian_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `postcomment6`
+--
+
+CREATE TABLE `postcomment6` (
+  `id` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `comment` varchar(512) COLLATE utf8_hungarian_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- Indexek a kiírt táblákhoz
+--
+
+--
+-- A tábla indexei `postcomment5`
+--
+ALTER TABLE `postcomment5`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- A tábla indexei `postcomment6`
+--
+ALTER TABLE `postcomment6`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- A kiírt táblák AUTO_INCREMENT értéke
+--
+
+--
+-- AUTO_INCREMENT a táblához `postcomment5`
+--
+ALTER TABLE `postcomment5`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT a táblához `postcomment6`
+--
+ALTER TABLE `postcomment6`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
