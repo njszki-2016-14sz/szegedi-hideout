@@ -20,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 			}
 			mysql_query("SET NAMES utf8", $db);
 			
-			if(strlen($_POST['username'])>5 /* $_POST['password']==$_POST['passwordagain']*/)
+			if(strlen($_POST['username'])<5)
 			{
 			$hibatext="a felhasználónév túl rövid";	
 			$hiba=true;
@@ -60,7 +60,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 	</div>
 		<div id="register">
 			<form method="post">
-				<p id="eror"><?=$hibatext?></p>
+				<p id="error"><?=$hibatext?></p>
 				<p>felhasználónév</p>
 				
 				<input type="text" name="username">

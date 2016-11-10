@@ -87,19 +87,23 @@
 								$ress = mysql_query("SELECT * FROM users WHERE id='$userid';", $db);
 								$rec = mysql_fetch_assoc($ress);
 								?>
-								<div class="feedfooter">
+								
 								
 								<?php
 								$bg="background-color: ".GetColorByRank($rec['rankid']).";";
 								$username=$rec['username'];
 								print"<p id='senderbox' style='$bg'>$username</p>"
 								?>
-								</div>
+								
 								
 								</form>
 							</div>
 						<?php
 						}
+						
+						
+						if(isset($_SESSION['userid']))
+						{
 						?>
 						<div class="newcomment">
 						<div class="titlebar">
@@ -116,6 +120,7 @@
 						</form>
 						</div>
 					<?php
+						}
 					}
 				}
 			}
