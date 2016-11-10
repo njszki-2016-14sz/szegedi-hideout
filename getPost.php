@@ -29,20 +29,12 @@
 		</div>
 		<div id="centerfeed">	
 		<?php
-		
-			$res = mysql_query("SELECT * FROM feedposts ORDER BY id DESC;", $db);
+			$res = mysql_query("SELECT * FROM feedposts WHERE id='$postid';", $db);
 			while($record = mysql_fetch_assoc($res)){
 				?>
 				<div class="feed">
 					<div class="titlebar">
-					<?php
-
-					
-					$posttitle=$record['posttitle'];
-					$postid=$record['id'];
-					echo("<a class='titlebar-title' href='post.php?postid=$postid'> $posttitle</a>");
-					
-					?>
+					<p class="titlebar-title"><?= $record['posttitle']?></p>
 					
 					</div>
 				<div class="feedcontent">
@@ -57,7 +49,7 @@
 				$username=$rec['username'];
 				print"<p id='senderbox' style='$bg'>$username</p>"
 				?>
-				<form method="post" class="commnethidder">
+				<form method="get" class="commnethidder">
 				<input type="submit" name="comment" value="hozzászólások" class="commentbt">
 				<input type="hidden" name="postid" value=<?=$record['id'];?>>
 				
@@ -71,14 +63,14 @@
 						$_POST['comment']="hozászólás";
 						$_SESSION['postid']=null;
 					}
-				if(isset($_POST['comment']))
+				if(isset($_GET['comment']))
 				{
 					
-					if($_POST['postid']==$record['id'])
+					if($_GET['postid']==$record['id'])
 					{
 					
 					mysql_select_db('facebookclonecomment', $db);
-					$cmtres = mysql_query("SELECT * FROM postcomment".$_POST['postid'].";", $db);
+					$cmtres = mysql_query("SELECT * FROM postcomment".$_GET['postid'].";", $db);
 					mysql_select_db('facebookclone', $db);
 					print mysql_error();
 						while($cmtrecord = mysql_fetch_assoc($cmtres)){
@@ -131,30 +123,7 @@
 					}
 				}
 			}
-		if(isset($_SESSION['rankid']))
-		{			
-			if($_SESSION['rankid']>=99)
-			{
-			?>
-			<div class="feed">
-			<div class="titlebar">
-				<p class="titlebar-title">ÚJ POSZT</p>
-			</div>
-			<form method="post" action="newPost.php" id="newpost">
-			<div class="feedcontent">
-					<p>poszt címe</p>
-					<input type="text" name="posttitle" style="border:1px solid red;">
-					<p>poszt szövege</p>
-					<textarea name="comment" form="newpost" id="textareaposzt" style="border:1px solid red;"></textarea>
-			</div>
-			<div class="feedfooter">
-					<input type="submit" value="poszt" name="post" class="commentbt">
-			</div>
-			</form>
-			</div>
-			<?php
-			}
-		}
+		
 			?>
 		</div>
 </div>
