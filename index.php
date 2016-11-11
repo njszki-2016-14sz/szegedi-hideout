@@ -29,23 +29,30 @@ function GetColorByRank($rankid)
 	<div id="header">
 	<div id="login">
 	<form method="post" action="login.php" id="loginform">
-	
+	<div id="logintexts">
 	<input type="text" name="username" class="logintextbox">
 	<input type="password" name="password" class="logintextbox">
-	<input type="submit" name="login" value="Bejelentkezés" id="loginbt">
-	</form>
-	<form method="post" id="registerfrm">
-	<input type="submit" value="regisztrálás" name="reg">
-	</form>
-	</div>
-	</div>
 	<?php
 	if(isset($_SESSION['hiba']))
 	{
 	print "<div>";
 	print $_SESSION['hiba'];
 	print "</div>";
+	$_SESSION['hiba']=null;
 	}
+	?>
+	</div>
+	<input type="submit" name="login" value="Bejelentkezés" id="loginbt">
+	
+	</form>
+	<form method="post" id="registerfrm">
+	<input type="submit" value="regisztrálás" name="reg">
+	</form>
+	
+	</div>
+	</div>
+	<?php
+	
 	include("postfeed.php");
 	?>
 	</body>

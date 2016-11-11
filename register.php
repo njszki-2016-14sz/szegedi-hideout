@@ -51,11 +51,23 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 	<div id="header">
 	<div id="login">
 	<form method="post" action="login.php" id="loginform">
-	
+	<div id="logintexts">
 	<input type="text" name="username" class="logintextbox">
 	<input type="password" name="password" class="logintextbox">
+	<?php
+	if(isset($_SESSION['hiba']))
+	{
+	print "<div>";
+	print $_SESSION['hiba'];
+	print "</div>";
+	$_SESSION['hiba']=null;
+	}
+	?>
+	</div>
 	<input type="submit" name="login" value="Bejelentkezés" id="loginbt">
+	
 	</form>
+	
 	</div>
 	</div>
 		<div id="register">
