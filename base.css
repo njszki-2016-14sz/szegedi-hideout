@@ -39,7 +39,7 @@ body
 {
 	height: 60px;
     width: 150px;
-    background-color: #f9a56a;
+    background-color: #da4f38;
     float: left;
 	font-weight: bold;
 }
@@ -58,7 +58,7 @@ body
 	float:left;
 	width: 432px;
 	height:60px;
-	 background-color: #f9a56a;
+	 background-color:#da4f38;
 	
 }
 .logintextbox
@@ -76,7 +76,7 @@ body
 	border: 1px solid red;
 	height:60px;
 	width:150px;
-	background-color: #f9a56a;
+	background-color: #da4f38;
 }
 #username
 {
@@ -95,7 +95,7 @@ body
 {
 	height: 60px;
 	width: 150px;
-	background-color: #f9a56a;
+	background-color:#da4f38;
 	border: 1px solid red;
 }
 #content
@@ -175,7 +175,7 @@ body
 }
 #userbox
 {
-	 background-color:#f9a56a;
+	 background-color:#da4f38;
 	width:150px;
 	height:60px;
 	float:left;
@@ -230,6 +230,6 @@ body
 {
 	height: 20;
     width: 100;
-    background-color: #f9a56a;
+    background-color: #da4f38;
     border: 1px red solid;
 }
