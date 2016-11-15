@@ -39,13 +39,13 @@
 body
 {
 	padding-left:20px;
-	background-color: #bfbfbf;
+	background-color: #ffdcdc;
 }#register
 {
 	float:left;
 	width: 190px;
 	border-radius:5px;
-	background-color: #f5f1d7;
+	background-color:#fd9d9d;
 	border-width:1px;
 	border-color:red;
 	border-style:solid;
@@ -99,7 +99,7 @@ body
 .feedcontent
 {
 	height:170px;
-	background-color:#f5f1d7;
+	background-color:#fd9d9d;
 	
 }
 #senderbox
@@ -118,7 +118,7 @@ body
 	height:500px;
 	margin-right:20px;
 	margin-top:15px;
-	background-color:#f5f1d7;
+	background-color:#fd9d9d;
 	
 }
 #error

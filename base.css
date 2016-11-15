@@ -7,7 +7,7 @@
 body
 {
 	padding-left:20px;
-	background-color: #bfbfbf;
+	background-color: #ffdcdc;
 }
 #header
 {
@@ -112,7 +112,7 @@ body
 	float:left;
 	width:10%;
 	height:500px;
-	background-color:#f5f1d7;
+	background-color:#fd9d9d;
 }
 #rightsidebar
 {
@@ -124,7 +124,7 @@ body
 	height:500px;
 	margin-right:20px;
 	margin-top:15px;
-	background-color:#f5f1d7;
+	background-color:#fd9d9d;
 	
 }
 .feed
@@ -170,7 +170,7 @@ body
 .feedcontent
 {
 	height:170px;
-	background-color:#f5f1d7;
+	background-color:#fd9d9d;
 	
 }
 #userbox
