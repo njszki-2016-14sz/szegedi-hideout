@@ -12,6 +12,8 @@
 		<div class="titlebar">
 		<p class="titlebar-title">új posztok</p>
 		<?php
+		if(isset($_SESSION['userid']))
+		{
 		$db = mysql_connect('localhost', 'root', '');
 		if(!$db){
 				die('Could not connect: '.mysql_error());
@@ -38,6 +40,10 @@
 			}
 			
 			//mysql_query("UPDATE `users` SET `lastseen` = NOW() WHERE `users`.`id` ='$userid';");
+		}else
+		{
+			print "<p>bejelentkezés szükséges</p>";
+		}
 		?>
 		
 		</div>
