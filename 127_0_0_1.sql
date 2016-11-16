@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2016. Nov 04. 12:48
+-- Létrehozás ideje: 2016. Nov 16. 12:33
 -- Kiszolgáló verziója: 10.1.16-MariaDB
 -- PHP verzió: 5.6.24
 
@@ -32,16 +32,20 @@ CREATE TABLE `feedposts` (
   `id` int(11) NOT NULL,
   `userid` int(11) NOT NULL,
   `posttitle` varchar(100) COLLATE utf8_hungarian_ci NOT NULL,
-  `post` varchar(512) COLLATE utf8_hungarian_ci NOT NULL
+  `post` varchar(512) COLLATE utf8_hungarian_ci NOT NULL,
+  `postdate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `feedposts`
 --
 
-INSERT INTO `feedposts` (`id`, `userid`, `posttitle`, `post`) VALUES
-(5, 1, 'i needed ', 'a db reset again'),
-(6, 1, '2nx', 'asdasdasdf');
+INSERT INTO `feedposts` (`id`, `userid`, `posttitle`, `post`, `postdate`) VALUES
+(5, 1, 'i needed ', 'a db reset again', '2016-11-16 11:29:36'),
+(6, 1, '2nx', 'asdasdasdf', '2016-11-16 11:22:53'),
+(7, 1, 'cím', 'valami', '2016-11-16 11:22:53'),
+(8, 1, 'asd', 'asd', '2016-11-16 11:22:53'),
+(9, 6, 'the yomi', 'chan\r\n', '2016-11-16 11:22:53');
 
 -- --------------------------------------------------------
 
@@ -72,17 +76,18 @@ CREATE TABLE `users` (
   `username` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
   `password` varchar(32) COLLATE utf8_hungarian_ci NOT NULL,
   `e-mail` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_hungarian_ci NOT NULL,
-  `rankid` int(11) NOT NULL
+  `rankid` int(11) NOT NULL,
+  `lastseen` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `e-mail`, `rankid`) VALUES
-(1, 'steamhunter', '6f8b2364f18a627b44f0e4d63fe5b5ea', 'steamhunter97@gmail.com', 99),
-(3, 'admin', '6f8b2364f18a627b44f0e4d63fe5b5ea', 'steamhunter97@gmail.com', 99),
-(6, 'TheYomiChan', 'b5d73d30683e117cee008545982e8ae5', 'gamehunter997@gmail.com', 0);
+INSERT INTO `users` (`id`, `username`, `password`, `e-mail`, `rankid`, `lastseen`) VALUES
+(1, 'steamhunter', '6f8b2364f18a627b44f0e4d63fe5b5ea', 'steamhunter97@gmail.com', 99, '2016-11-16 11:24:00'),
+(3, 'admin', '6f8b2364f18a627b44f0e4d63fe5b5ea', 'steamhunter97@gmail.com', 99, '2016-11-16 11:24:00'),
+(6, 'TheYomiChan', 'b5d73d30683e117cee008545982e8ae5', 'gamehunter997@gmail.com', 0, '2016-11-16 11:24:00');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -108,7 +113,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT a táblához `feedposts`
 --
 ALTER TABLE `feedposts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT a táblához `users`
 --
@@ -144,6 +149,56 @@ CREATE TABLE `postcomment6` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
+-- A tábla adatainak kiíratása `postcomment6`
+--
+
+INSERT INTO `postcomment6` (`id`, `userid`, `comment`) VALUES
+(1, 1, 'test comment');
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `postcomment7`
+--
+
+CREATE TABLE `postcomment7` (
+  `id` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `comment` varchar(512) COLLATE utf8_hungarian_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `postcomment7`
+--
+
+INSERT INTO `postcomment7` (`id`, `userid`, `comment`) VALUES
+(1, 1, 'volt');
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `postcomment8`
+--
+
+CREATE TABLE `postcomment8` (
+  `id` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `comment` varchar(512) COLLATE utf8_hungarian_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `postcomment9`
+--
+
+CREATE TABLE `postcomment9` (
+  `id` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `comment` varchar(512) COLLATE utf8_hungarian_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
 -- Indexek a kiírt táblákhoz
 --
 
@@ -160,6 +215,24 @@ ALTER TABLE `postcomment6`
   ADD PRIMARY KEY (`id`);
 
 --
+-- A tábla indexei `postcomment7`
+--
+ALTER TABLE `postcomment7`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- A tábla indexei `postcomment8`
+--
+ALTER TABLE `postcomment8`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- A tábla indexei `postcomment9`
+--
+ALTER TABLE `postcomment9`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- A kiírt táblák AUTO_INCREMENT értéke
 --
 
@@ -172,6 +245,21 @@ ALTER TABLE `postcomment5`
 -- AUTO_INCREMENT a táblához `postcomment6`
 --
 ALTER TABLE `postcomment6`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT a táblához `postcomment7`
+--
+ALTER TABLE `postcomment7`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT a táblához `postcomment8`
+--
+ALTER TABLE `postcomment8`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT a táblához `postcomment9`
+--
+ALTER TABLE `postcomment9`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
