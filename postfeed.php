@@ -11,6 +11,7 @@
 		<div id="rightsidebar">
 		<div class="titlebar">
 		<p class="titlebar-title">új posztok</p>
+		<
 		<?php
 		if(isset($_SESSION['userid']))
 		{
@@ -29,7 +30,7 @@
 			$lastseenf= mysql_fetch_array($lastseen);
 			$lastseen=$lastseenf[0];
 			
-			$res = mysql_query("SELECT * FROM `feedposts` WHERE postdate< '$lastseen' ORDER BY id DESC;", $db);
+			$res = mysql_query("SELECT * FROM `feedposts` WHERE postdate> '$lastseen' ORDER BY id DESC;", $db);
 			$postok=array();
 			while($fetch=mysql_fetch_array($res))
 			{
@@ -39,7 +40,7 @@
 			echo("<br>");
 			}
 			
-			//mysql_query("UPDATE `users` SET `lastseen` = NOW() WHERE `users`.`id` ='$userid';");
+			mysql_query("UPDATE `users` SET `lastseen` = NOW() WHERE `users`.`id` ='$userid';");
 		}else
 		{
 			print "<p>bejelentkezés szükséges</p>";
