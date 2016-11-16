@@ -78,7 +78,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadmin']))
 	</div>
 	</div>
 	<?php
-	include("postfeed.php");
+	
+			include("postfeed.php");
 	?>
 	
 		

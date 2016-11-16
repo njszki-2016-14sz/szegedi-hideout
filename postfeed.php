@@ -11,6 +11,35 @@
 		<div id="rightsidebar">
 		<div class="titlebar">
 		<p class="titlebar-title">új posztok</p>
+		<?php
+		$db = mysql_connect('localhost', 'root', '');
+		if(!$db){
+				die('Could not connect: '.mysql_error());
+				}
+		$db_selected = mysql_select_db('facebookclone', $db);
+		if(!$db_selected){
+				die ('Can\'t use: '. mysql_error());
+			}
+			mysql_query("SET NAMES utf8", $db);	
+			$userid=$_SESSION['userid'];
+			
+			$lastseen=mysql_query("SELECT lastseen FROM `users` WHERE id=$userid");
+			$lastseenf= mysql_fetch_array($lastseen);
+			$lastseen=$lastseenf[0];
+			
+			$res = mysql_query("SELECT * FROM `feedposts` WHERE postdate< '$lastseen' ORDER BY id DESC;", $db);
+			$postok=array();
+			while($fetch=mysql_fetch_array($res))
+			{
+			$posttitle=$fetch['posttitle'];
+			$postid=$fetch['id'];
+			echo("<a class='titlebar-title' href='post.php?postid=$postid'> $posttitle</a>");
+			echo("<br>");
+			}
+			
+			//mysql_query("UPDATE `users` SET `lastseen` = NOW() WHERE `users`.`id` ='$userid';");
+		?>
+		
 		</div>
 		<div>
 		<?php
