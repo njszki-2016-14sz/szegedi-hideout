@@ -11,7 +11,7 @@
 		<div id="rightsidebar">
 		<div class="titlebar">
 		<p class="titlebar-title">új posztok</p>
-		<
+		
 		<?php
 		if(isset($_SESSION['userid']))
 		{

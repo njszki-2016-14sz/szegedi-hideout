@@ -9,11 +9,12 @@ $db = mysql_connect('localhost', 'root', '');
 		}
 		mysql_query("SET NAMES utf8", $db);
 		session_start();
+		
 		$userid=$_SESSION['userid'];
 		$posttitle=$_POST['posttitle'];
 		$comment=$_POST['comment'];
-		//
 		mysql_query("INSERT INTO `feedposts` (`id`, `userid`, `posttitle`, `post`,`postdate`) VALUES (NULL, '$userid', '$posttitle', '$comment',now());", $db);
+		mysql_query("UPDATE `users` SET `lastseen` = NOW() WHERE `users`.`id` ='$userid';");
 		$res = mysql_query("SELECT * FROM feedposts ORDER BY id DESC LIMIT 1;", $db);
 		$postdata=mysql_fetch_assoc($res);
 		$postid=$postdata['id'];
