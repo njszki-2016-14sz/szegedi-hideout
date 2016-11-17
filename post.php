@@ -13,6 +13,10 @@ if(!isset($_SESSION['username']))
 {
 	header('Location: /index.php');
 }
+if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['reset']))
+	{
+		header('Location: /feed.php');
+	}
 if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadminquit']))
 	{
 		header('Location: /post.php');
@@ -32,9 +36,15 @@ if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadmin']))
 	</head>
 	<body>
 	<div id="header">
+	
 	<div id="userbox">
 	<p id="username"><?=$_SESSION['username'];?></p>
 	</div>
+		<div id="mainpage">
+		<form method="post">
+		<input type="submit" value="Fő oldal" name="reset">
+		</form>
+		</div>
 		
 		<div class="logout">
 		
@@ -50,23 +60,23 @@ if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadmin']))
 				if(isset($_POST['phpmyadmin']))
 				{
 				?>
-				<div style="background-color:#f9a56a;width: 300px;height: 60;float:left;border: 1px red solid;">
+				<div style="background-color:#da4f38;width: 300px;height: 60;float:left;border: 1px red solid;">
 				<?php
 				}else
 				{
 				?>
-				<div style="background-color:#f9a56a;width: 150px;height: 60;float:left;border: 1px red solid;">
+				<div style="background-color:#da4f38;width: 150px;height: 60;float:left;border: 1px red solid;">
 				<?php
 				}
 				?>
 				<form method="post" action="" style="width:100%; float:left;">
 				
-				<input type="submit" name="phpmyadmin" value="phpmyadmin" style="background-color:#f9a56a;width: 150px;height: 60;float:left;    font-weight: bold;">
+				<input type="submit" name="phpmyadmin" value="phpmyadmin" style="background-color:#da4f38;width: 150px;height: 60;float:left;    font-weight: bold;">
 				<?php
 				if(isset($_POST['phpmyadmin']))
 				{
 				?>
-				<input type="submit" name="phpmyadminquit" value="phpmyadminquit" style="background-color:#f9a56a;width: 150px;height: 60;float:left;border-left:1px;border-style:solid;border-color:red;     font-weight: bold;">
+				<input type="submit" name="phpmyadminquit" value="phpmyadminquit" style="background-color:#da4f38;width: 150px;height: 60;float:left;border-left:1px;border-style:solid;border-color:red;     font-weight: bold;">
 				<?php
 				}
 				?>
@@ -76,6 +86,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadmin']))
 			}
 			?>
 	</div>
+	
 	</div>
 	<?php
 	

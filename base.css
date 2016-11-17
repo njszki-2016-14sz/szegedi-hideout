@@ -24,6 +24,23 @@ body
 	border-style:solid;
 	vertical-align:top;
 }
+#mainpage
+{
+	
+	float: left;
+	width: 150px;
+	height: 60px;
+}
+#mainpage input
+{
+	border: 1px solid red;
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+	width:150px;
+	height:62px;
+	background-color:#da4f38;
+}
 #login
 {
 	float:left;
@@ -51,7 +68,7 @@ body
 #logoutform
 {
 	float:left;
-	width: 80px;
+	width: 150px;
 }
 #loginform
 {
@@ -209,7 +226,7 @@ body
 .feedcommentcontent
 {
 	height:150px;
-	background-color:#f5f1d7;
+	background-color:#fd9d9d;
 	
 }
 .newcomment

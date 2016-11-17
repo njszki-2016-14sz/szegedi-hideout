@@ -13,7 +13,7 @@ if(!isset($_SESSION['username']))
 {
 	header('Location: /index.php');
 }
-if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadminquit']))
+if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadminquit'])||$_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['reset']))
 	{
 		header('Location: /feed.php');
 	}
@@ -35,7 +35,11 @@ if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadmin']))
 	<div id="userbox">
 	<p id="username"><?=$_SESSION['username'];?></p>
 	</div>
-		
+		<div id="mainpage">
+		<form method="post">
+		<input type="submit" value="Fő oldal" name="reset">
+		</form>
+		</div>
 		<div class="logout">
 		
 			<form method="post" action="logout.php" id="logoutform">
@@ -75,7 +79,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['phpmyadmin']))
 			<?php
 			}
 			?>
-	</div>
 	</div>
 	<?php
 	
