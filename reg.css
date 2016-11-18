@@ -125,3 +125,10 @@ body
 {
 	float:left;
 }
+.commentbt
+{
+	height: 20;
+    width: 100;
+    background-color: #da4f38;
+    border: 1px red solid;
+}

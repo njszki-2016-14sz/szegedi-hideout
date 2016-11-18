@@ -86,7 +86,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 				<input type="password" name="password">
 				<p>jelszó ismét</p>
 				<input type="password" name="passwordagain">
-				<input type="submit" name="login" value="regisztrálás">
+				<input type="submit" name="login" value="regisztrálás" class="commentbt">
 			</form>
 		</div>
 		<div id="rightsidebar">
@@ -254,7 +254,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 				<input type="password" name="password">
 				<p>jelszó ismét</p>
 				<input type="password" name="passwordagain">
-				<input type="submit" name="login" value="regisztrálás">
+				<input type="submit" name="login" value="regisztrálás" class="commentbt">
 			</form>
 		</div>
 		<div id="rightsidebar">
