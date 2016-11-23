@@ -36,11 +36,35 @@
 	width:150px;
 	background-color:#da4f38;
 }
+#logintexts
+{
+	float: left;
+	padding-top: 20px;
+	margin-right: 4px;
+}
 body
 {
 	padding-left:20px;
 	background-color: #ffdcdc;
-}#register
+}
+#mainpage
+{
+	
+	float: left;
+	width: 150px;
+	height: 60px;
+}
+#mainpage input
+{
+	border: 1px solid red;
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+	width:150px;
+	height:60px;
+	background-color:#da4f38;
+}
+#register
 {
 	float:left;
 	width: 190px;
@@ -107,6 +131,7 @@ body
 	height:20px; 
 	width:100px;
 	float:left;
+	margin-top: 0px;
 }
 #rightsidebar
 {
@@ -127,8 +152,17 @@ body
 }
 .commentbt
 {
-	height: 20;
-    width: 100;
+	height: 20px;
+    width: 100px;
     background-color: #da4f38;
     border: 1px red solid;
+	float:right;
+}
+.regbt
+{
+	height: 20px;
+    width: 100px;
+    background-color: #da4f38;
+    border: 1px red solid;
+	margin-top: 15px;
 }

@@ -8,6 +8,10 @@ function GetColorByRank($rankid)
 	
 	}
 }
+if($_SERVER["REQUEST_METHOD"]=="POST"&&isset($_POST['reset']))
+	{	
+			header('Location: /index.php');
+	}
 if($_SERVER["REQUEST_METHOD"]=="POST")
 	{
 		$db = mysql_connect('localhost', 'root', '');
@@ -49,7 +53,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 	</head>
 	<body>
 	<div id="header">
-	
 	<div id="login">
 	<form method="post" action="login.php" id="loginform">
 	<div id="logintexts">
@@ -70,9 +73,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 	</form>
 	
 	</div>
-	<div id="mainpage">
-	<a href="/index.php">Fő oldal</a>
-	</div>
 	</div>
 		<div id="register">
 			<form method="post">
@@ -86,7 +86,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 				<input type="password" name="password">
 				<p>jelszó ismét</p>
 				<input type="password" name="passwordagain">
-				<input type="submit" name="login" value="regisztrálás" class="commentbt">
+				<input type="submit" name="login" value="regisztrálás" class="regbt">
 			</form>
 		</div>
 		<div id="rightsidebar">
@@ -242,6 +242,11 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 	<input type="password" name="password" class="logintextbox">
 	<input type="submit" name="login" value="Bejelentkezés" id="loginbt">
 	</form>
+		<div id="mainpage">
+		<form method="post">
+		<input type="submit" value="Fő oldal" name="reset">
+		</form>
+		</div>
 	</div>
 	</div>
 		<div id="register">
@@ -254,7 +259,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 				<input type="password" name="password">
 				<p>jelszó ismét</p>
 				<input type="password" name="passwordagain">
-				<input type="submit" name="login" value="regisztrálás" class="commentbt">
+				<input type="submit" name="login" value="regisztrálás" class="regbt">
 			</form>
 		</div>
 		<div id="rightsidebar">
