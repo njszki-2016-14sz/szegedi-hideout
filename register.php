@@ -73,6 +73,11 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 	</form>
 	
 	</div>
+	<div id="mainpage">
+		<form method="post">
+		<input type="submit" value="Fő oldal" name="reset">
+		</form>
+		</div>
 	</div>
 		<div id="register">
 			<form method="post">
