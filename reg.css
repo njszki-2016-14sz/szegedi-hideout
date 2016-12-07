@@ -104,7 +104,8 @@ body
 .titlebar-title
 {
 	padding:10px;
-	margin:0;
+	text-decoration: none;
+	color: white;
 }
 #centerfeed
 {margin-left:0.81%;

@@ -144,7 +144,14 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 				?>
 				<div class="feed">
 					<div class="titlebar">
-					<p class="titlebar-title"><?= $record['posttitle']?></p>
+					<?php
+
+					
+					$posttitle=$record['posttitle'];
+					$postid=$record['id'];
+					echo("<a class='titlebar-title' href='post.php?postid=$postid'> $posttitle</a>");
+					
+					?>
 					
 					</div>
 				<div class="feedcontent">
@@ -324,7 +331,14 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 				?>
 				<div class="feed">
 					<div class="titlebar">
-					<p class="titlebar-title"><?= $record['posttitle']?></p>
+					<?php
+
+					
+					$posttitle=$record['posttitle'];
+					$postid=$record['id'];
+					echo("<a class='titlebar-title' href='post.php?postid=$postid'> $posttitle</a>");
+					
+					?>
 					
 					</div>
 				<div class="feedcontent">
